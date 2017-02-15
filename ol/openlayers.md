@@ -12,7 +12,7 @@ Prise en main de Openlayers
 
 * permettant la cartographie en ligne
 
-### Autres infos
+### Autres
 
 * Leaflet 
 > autre bibiliothèque JS
@@ -20,11 +20,17 @@ Prise en main de Openlayers
 * API Geoportail 
 > basé sur OpenLayers
 
+* API Google Maps
+
 ### Qui s'en sert ?
 
 ---
 
 ## La base
+
+Top-level namespace : ```ol```
+
+Les subdivisions qui nous intéressent sont :
 
 ### Map
 
@@ -107,4 +113,28 @@ On peut grouper ce qu'on a vu précédemment
 
 ## Construction de la première page
 
-Créez votre première carte centrée sur la ville où vous êtes né 
+Créez votre première carte 
+* centrée sur l'ENSG
+
+---
+
+## Autres 
+
+### Feature
+
+### Object
+
+### Style
+
+---
+
+## Construction de la première page
+
+Reprenez votre première carte et ajoutez-y 
+* un point rouge à l'endroit où vous résidez
+* un carré vert sur votre lieu de naissance
+
+### Liens utiles
+
+* https://openlayers.org/en/latest/examples/
+* https://openlayers.org/en/latest/apidoc/ol.html
