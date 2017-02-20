@@ -24,6 +24,8 @@ Prise en main de Openlayers
 
 ### Qui s'en sert ?
 
+* Geoportail
+
 ---
 
 ## La base
