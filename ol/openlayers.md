@@ -12,6 +12,8 @@ Prise en main de Openlayers
 
 * permettant la cartographie en ligne
 
+* supporté par l'Open Source Geospatial Foundation (OSGeo)
+
 ### Autres
 
 * Leaflet 
@@ -22,7 +24,7 @@ Prise en main de Openlayers
 
 * API Google Maps
 
-### Qui s'en sert ?
+### Utilisation
 
 * Geoportail
 
@@ -33,6 +35,8 @@ Prise en main de Openlayers
 Top-level namespace : ```ol```
 
 Les subdivisions qui nous intéressent sont :
+
+>>présentation namespace tout ça
 
 ### Map
 
