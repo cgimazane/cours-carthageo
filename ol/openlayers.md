@@ -40,18 +40,20 @@ Les subdivisions qui nous intéressent sont :
 
 ### Map
 
-* élément principal
+* élément principal et descendant direct de ```ol```
 
 * rendu dans un conteneur cible (une div)
 
 ```html
-<div id="map" style="width: 100%, height: 400px"></div>
+<div id="map" style="width: 100%; height: 400px;"></div>
 <script>
   var map = new ol.Map({target: 'map'}); //div ciblée par son id
 </script>
 ```
 
 ### View
+
+* élément descendant de Map
 
 * gestion du zoom, centrage ...
 
@@ -80,7 +82,7 @@ var osmSource = new ol.source.OSM();
 
 ### Layer
 
-* Représentation visuelle de la donnée depuis une source
+* Représentation visuelle de la donnée depuis une source définie dans le layergroup du Map
 
 * 3 types basiques
  - ol.layer.Tile
@@ -97,10 +99,12 @@ var osmSource = new ol.source.OSM();
 
 ### Finalement
 
-On peut grouper ce qu'on a vu précédemment
+On peut grouper ce qu'on a vu précédemment pour la construction de la première page
+
+--- 
 
 ```html
-<div id="map" style="width: 100%, height: 400px"></div>
+<div id="map" style="width: 100%; height: 400px;"></div>
 <script>
   new ol.Map({
     layers: [
@@ -114,13 +118,6 @@ On peut grouper ce qu'on a vu précédemment
   });
 </script>
 ```
-
----
-
-## Construction de la première page
-
-Créez votre première carte 
-* centrée sur l'ENSG
 
 ---
 
@@ -139,6 +136,7 @@ Créez votre première carte
 Reprenez votre première carte et ajoutez-y 
 * un point rouge à l'endroit où vous résidez
 * un carré vert sur votre lieu de naissance
+* modifier la projection
 
 ### Liens utiles
 
