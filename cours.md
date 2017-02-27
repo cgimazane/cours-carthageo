@@ -1,5 +1,11 @@
 # Webmapping
 
+## Etat des lieux
+
+* client ? server ?
+* html ? css ? js ? php ?
+* frameworks ?
+
 ## Définition
 
 * Web- : Internet
@@ -99,12 +105,14 @@ outputFormat=application/json
 
 Client
 
+
+## Autres services & standards
+
+### KML
+
+### CSW
+
 ### WCS
-
-## Autres standards
-
-* KML
-* CSW
 
 ## GeoServer
 
@@ -131,3 +139,5 @@ airports & ports
 railroads & urban areas
 
 ### Symbolisation WMS
+
+### Couche dynamique

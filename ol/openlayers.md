@@ -138,6 +138,14 @@ Reprenez votre première carte et ajoutez-y
 * un carré vert sur votre lieu de naissance
 * modifier la projection
 
+### Ajout page geoserver
+
+### WMS
+
+### WFS
+
+gestion proxy
+
 ### Liens utiles
 
 * https://openlayers.org/en/latest/examples/
