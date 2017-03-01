@@ -33,7 +33,7 @@ Protocole de communication respectant des spécifications (définies par l'OGC)
 
 Web Map Service
 
-Trois opérations disponibles dans un service WMS :
+Trois opérations ("requests") disponibles dans un service WMS :
 
 * __GetCapabilities__ retourne les méta-données qui décrivent le contenu du service et les paramètres acceptés,
 * __GetMap__ retourne une image d'une carte dont les paramètres géospatiaux et dimensionnels sont correctement représentés,
@@ -84,7 +84,7 @@ Ressemblant au WMS mais se focalisant sur la perfomance : les images sont des tu
 
 Web Feature Service
 
-5 opérations pour envoyer des requêtes au serveur et obtenir des informations :
+5 opérations ("requests") pour envoyer des requêtes au serveur et obtenir des informations :
 
 * __GetCapabilities__ : permet de connaître les capacités du serveur (quelles opérations sont supportées et quels objets sont fournis).
 * __DescribeFeatureType__ : permet de retourner la structure de chaque entité susceptible d’être fournie par le serveur.
@@ -149,11 +149,11 @@ Client
 
 #### Shapefile
 
-airports & ports
+airports & ports & lakes
 
 #### Postgis
 
-railroads & urban areas
+railroads & rivers
 
 ### Symbolisation WMS
 

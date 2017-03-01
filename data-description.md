@@ -6,7 +6,9 @@
 
 ## Airports 
 
-### Description 
+### Description
+
+Transportation.
 
 ### Symbolisation 
 
@@ -36,7 +38,9 @@ COMMIT;
 
 ## Ports 
 
-### Description 
+### Description
+
+Transportation.
 
 ### Symbolisation 
 
@@ -61,7 +65,9 @@ COMMIT;
  
 ## Railroads 
 
-### Description 
+### Description
+
+Transportation.
 
 ### Symbolisation 
 
@@ -95,6 +101,8 @@ COMMIT;
 
 ### Description 
 
+Natural and artificial lakes.
+
 ### Symbolisation 
 
 ![lakes](img/lakes.png "lakes")
@@ -124,6 +132,8 @@ COMMIT;
 ## Rivers 
 
 ### Description 
+
+Single-line drainages including optional lake centerlines.
 
 ### Symbolisation 
 
