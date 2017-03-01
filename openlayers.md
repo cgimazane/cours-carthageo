@@ -6,7 +6,7 @@ Prise en main de Openlayers
 
 ## Présentation
 
-### C'est quoi Openlayers ?
+### C'est quoi Openlayers ?
 
 * bibliothèque de fonctions JavaScript
 
@@ -24,7 +24,7 @@ Prise en main de Openlayers
 
 * API Google Maps
 
-### Utilisation
+### Utilisation
 
 * Geoportail
 
@@ -140,9 +140,9 @@ Reprenez votre première carte et ajoutez-y
 
 ### Ajout page geoserver
 
-### WMS
+### WMS
 
-### WFS
+### WFS
 
 gestion proxy
 
@@ -151,6 +151,6 @@ gestion proxy
 * https://openlayers.org/en/latest/examples/
 * https://openlayers.org/en/latest/apidoc/ol.html
 
-## Retour au cours 
+## Retour au cours 
 
 [Cours](cours.md)

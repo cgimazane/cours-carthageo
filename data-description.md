@@ -148,6 +148,6 @@ SELECT AddGeometryColumn('','rivers','geom','4326','MULTILINESTRING',2);
 COMMIT;
 ```
 
-## Retour au cours 
+## Retour au cours
 
 [Cours](cours.md)
