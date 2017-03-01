@@ -4,6 +4,7 @@
 
 * client ? server ?
 * html ? css ? js ? php ?
+* projection ? reprojection ? ...
 * frameworks ?
 
 ## Définition
@@ -67,9 +68,17 @@ format=application/openlayers
 
 #### Stylisation
 
+Serveur
+
+#### Exemple
+
+http://www.rok4.org/
+
 ### WMTS
 
-Serveur
+Web Map Tile Service
+
+Ressemblant au WMS mais se focalisant sur la perfomance : les images sont des tuiles déjà calculées (par opposition au WMS : reprojection) que le serveur met à disposition
 
 ### WFS
 
@@ -77,11 +86,11 @@ Web Feature Service
 
 5 opérations pour envoyer des requêtes au serveur et obtenir des informations :
 
-GetCapabilities : permet de connaître les capacités du serveur (quelles opérations sont supportées et quels objets sont fournis).
-DescribeFeatureType : permet de retourner la structure de chaque entité susceptible d’être fournie par le serveur.
-GetFeature : permet de livrer des objets (géométrie et/ou attributs) en GML (Geography Markup Language).
-LockFeature : permet de bloquer des objets lors d'une transaction.
-Transaction : permet de modifier l'objet (création, mise à jour, effacer).
+* __GetCapabilities__ : permet de connaître les capacités du serveur (quelles opérations sont supportées et quels objets sont fournis).
+* __DescribeFeatureType__ : permet de retourner la structure de chaque entité susceptible d’être fournie par le serveur.
+* __GetFeature__ : permet de livrer des objets (géométrie et/ou attributs) en GML (Geography Markup Language).
+* __LockFeature__ : permet de bloquer des objets lors d'une transaction.
+* __Transaction__ : permet de modifier l'objet (création, mise à jour, effacer).
 
 ```
 http://espace-revendeurs3-geoserver.ign.fr:8080/geoserver/espace_revendeurs/ows?
@@ -100,6 +109,10 @@ outputFormat=application/json
 * _VERSION_ : version
 * _SERVICE_ : service (WFS)
 * _SRS_ : Projection utilisée (EPSG%3A4326= WGS84)
+* _request_
+* _typeName_
+* _maxFeatures_
+* _outputFormat_
 
 #### Stylisation
 
@@ -113,6 +126,10 @@ Client
 ### CSW
 
 ### WCS
+
+## Présentation des données
+
+[Présentation des données](data-description.md)
 
 ## GeoServer
 
@@ -141,3 +158,7 @@ railroads & urban areas
 ### Symbolisation WMS
 
 ### Couche dynamique
+
+## OpenLayers
+
+[OpenLayers](openlayers.md)
