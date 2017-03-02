@@ -30,6 +30,10 @@ Création d'un site web de visualisation de données localisées, sélectionnée
 * stylisées
 > sémiologie
 
+### Conclusion
+
+La connaissance de la donnée est primordiale pour sa mise en avant
+
 ## Présentation des données
 
 [Présentation des données](data-description.md)
@@ -132,14 +136,14 @@ Web Feature Service
 * __Transaction__ : la modification d'un objet (CRUD)
 * __LockFeature__ : le bloquage des objets lors d'une transaction
 
-#### Exemple de requête WMS
+#### Exemple de requête WFS
 
 ```
 http://espace-revendeurs3-geoserver.ign.fr:8080/geoserver/espace_revendeurs/ows?
 service=WFS&
 version=1.0.0&
 request=GetFeature&
-typeName=espace_revendeurs:top-25&
+typeName=espace_revendeurs:serie-bleue&
 maxFeatures=50&
 outputFormat=application/json
 ```
