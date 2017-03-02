@@ -96,38 +96,6 @@ ALTER TABLE "railroads" ADD PRIMARY KEY (gid);
 SELECT AddGeometryColumn('','railroads','geom','4326','MULTILINESTRING',2);
 COMMIT;
 ``` 
-
-## Lakes 
-
-### Description 
-
-Natural and artificial lakes.
-
-### Symbolisation 
-
-![lakes](img/lakes.png "lakes")
-
-### sql
- 
-```sql
-SET CLIENT_ENCODING TO UTF8;
-SET STANDARD_CONFORMING_STRINGS TO ON;
-BEGIN;
-CREATE TABLE "lakes" (gid serial,
-"featurecla" varchar(32),
-"scalerank" numeric(10,0),
-"name" varchar(254),
-"name_abb" varchar(25),
-"name_alt" varchar(254),
-"note" varchar(100),
-"delta" varchar(100),
-"dam_name" varchar(254),
-"year" int4,
-"admin" varchar(50));
-ALTER TABLE "lakes" ADD PRIMARY KEY (gid);
-SELECT AddGeometryColumn('','lakes','geom','4326','MULTIPOLYGON',2);
-COMMIT;
-```
  
 ## Rivers 
 

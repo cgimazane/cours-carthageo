@@ -3,8 +3,8 @@
 ## Etat des lieux
 
 * client ? server ?
-* html ? css ? js ? php ?
-* projection ? reprojection ? ...
+* html ? css ? js ? php ? sql ?
+* projection ? reprojection ?
 * frameworks ?
 
 ## Définition
@@ -20,24 +20,43 @@ Création d'un site web de visualisation de données localisées, sélectionnée
 ### 5 locutions importantes
 
 * site web
+> interface utilisateur, navigation web
 * visualisation
-* données localisées : source
-* sélectionnées : filter
+> cartographie, information
+* __données localisées__
+> format, origine
+* sélectionnées
+> filtres,types
 * stylisées
+> sémiologie
+
+## Présentation des données
+
+[Présentation des données](data-description.md)
+
+### Chargement en base
+
+Dans une même base, charger les données airports et railroads
 
 ## Services Web
 
-Protocole de communication respectant des spécifications (définies par l'OGC)
+__Protocole de communication__ respectant des spécifications (définies par l'OGC)
 
 ### WMS
 
 Web Map Service
 
-Trois opérations ("requests") disponibles dans un service WMS :
+Trois opérations ("requests") disponibles dans un service WMS retournant différents types de résultats :
 
-* __GetCapabilities__ retourne les méta-données qui décrivent le contenu du service et les paramètres acceptés,
-* __GetMap__ retourne une image d'une carte dont les paramètres géospatiaux et dimensionnels sont correctement représentés,
-* __GetFeatureInfo__ retourne des informations sur un objet représenté sur la carte.
+* __GetCapabilities__ : méta-données (contenu du service et paramètres acceptés)
+* __GetMap__ : __image__ d'une carte paramétrée relativement
+* __GetFeatureInfo__ : informations sur un objet représenté sur la carte
+
+#### Exemple de requête WMS
+
+`protocole://nom_de_domaine(machine):port/serveur/workspace/service?parametres`
+
+ou sinon
 
 ```
 http://espace-revendeurs3-geoserver.ign.fr:8080/geoserver/espace_revendeurs/wms?
@@ -45,52 +64,75 @@ service=WMS&
 version=1.1.0&
 request=GetMap&
 layers=espace_revendeurs:top-25&
-styles=
-&bbox=-5.1517692007638,41.328101745707,9.5640825551276,51.120001234561&
+styles=&
+bbox=-5.1517692007638,41.328101745707,9.5640825551276,51.120001234561&
 width=768&
 height=511&
 srs=EPSG:4326&
-format=application/openlayers
+format=image/gif
 ```
 
 #### Paramètres
 
-* _VERSION_ est le numéro de version du protocole WMS.
-* _REQUEST_ correspond à un des trois types d'opérations possibles : GetCapabilities, GetMap, GetFeatureInfo.
-* _OUTPUTFORMAT_ correspond au format de sortie de l'image (exemple : image/png).
-* _BBOX_ pour l'étendue de la carte (longitude min,latitude min, longitude max, latitude max : attention en version 1.3.0 : latitude min,longitude min, latitude max, longitude max).
-* _WIDTH_ pour la largeur de l'image.
-* _HEIGHT_ pour la hauteur de l'image.
-* _LAYERS_ est la liste des couches désirées.
-* _SRS_ est le système de projection utilisée (CRS à partir de la version 1.3.0).
-* _SERVICE_ nom du service OGC (WMS donc)
-* _STYLES_ liste des styles utilisés pour chacune des LAYERS
+* _version_ : numéro de version WMS.
+* _request_ : opération
+* _format_ : format de sortie de l'image (exemple : image/png)
+* _bbox_ : bounding box de la carte
+* _width_ : largeur de l'image
+* _height_ : hauteur de l'image
+* _layers_ : liste des couches désirées
+* _srs_ : système de projection
+* _service_ : nom du service OGC (WMS donc)
+* _styles_ : liste des styles utilisés pour chacune des LAYERS
+
+##### Tests 
+
+Modifier certains paramètres 
+* width
+* height
+* bbox
+* layers (affichage de 2 autres couches)
+* format
 
 #### Stylisation
 
-Serveur
+Serveur => utilisation des sld
 
-#### Exemple
+#### Requete WMS dynamique
 
-http://www.rok4.org/
+```
+http://espace-revendeurs3-geoserver.ign.fr:8080/geoserver/espace_revendeurs/wms?
+service=WMS&version=1.1.0&
+request=GetMap&
+layers=espace_revendeurs:top-75-grid&
+viewparams=grid:13001&
+width=768&
+height=511&
+styles=&
+bbox=-5.1517692007638,41.328101745707,9.5640825551276,51.120001234561&
+srs=EPSG:4326&
+format=application/openlayers
+```
 
 ### WMTS
 
 Web Map Tile Service
 
-Ressemblant au WMS mais se focalisant sur la perfomance : les images sont des tuiles déjà calculées (par opposition au WMS : reprojection) que le serveur met à disposition
+Ressemblant au WMS mais se focalisant sur la perfomance : les __images__ sont des tuiles déjà calculées (par opposition au WMS : reprojection) que le serveur met à disposition
 
 ### WFS
 
 Web Feature Service
 
-5 opérations ("requests") pour envoyer des requêtes au serveur et obtenir des informations :
+5 opérations ("requests") pour envoyer des requêtes au serveur et obtenir des informations sur :
 
-* __GetCapabilities__ : permet de connaître les capacités du serveur (quelles opérations sont supportées et quels objets sont fournis).
-* __DescribeFeatureType__ : permet de retourner la structure de chaque entité susceptible d’être fournie par le serveur.
-* __GetFeature__ : permet de livrer des objets (géométrie et/ou attributs) en GML (Geography Markup Language).
-* __LockFeature__ : permet de bloquer des objets lors d'une transaction.
-* __Transaction__ : permet de modifier l'objet (création, mise à jour, effacer).
+* __GetCapabilities__ : les capacités du serveur (quelles opérations sont supportées et quels objets sont fournis)
+* __DescribeFeatureType__ : la structure de chaque entité susceptible d’être fournie par le serveur
+* __GetFeature__ : la livraison d'objets
+* __Transaction__ : la modification d'un objet (CRUD)
+* __LockFeature__ : le bloquage des objets lors d'une transaction
+
+#### Exemple de requête WMS
 
 ```
 http://espace-revendeurs3-geoserver.ign.fr:8080/geoserver/espace_revendeurs/ows?
@@ -104,13 +146,12 @@ outputFormat=application/json
 
 #### Paramètres
 
-* _NAME_ : nom de couche
-* _BBOX_ : étendue des données
-* _VERSION_ : version
-* _SERVICE_ : service (WFS)
-* _SRS_ : Projection utilisée (EPSG%3A4326= WGS84)
-* _request_
-* _typeName_
+* _bbox_ : étendue des données
+* _version_ : version
+* _service_ : service (WFS)
+* _srs_ : système de projection
+* _request_ : opération
+* _typeName_ : nom de la couche
 * _maxFeatures_
 * _outputFormat_
 
@@ -118,46 +159,65 @@ outputFormat=application/json
 
 Client
 
-
 ## Autres services & standards
 
 ### KML
 
+__Keyhole Markup Language__ basé sur le xml
+
+#### Exemple
+
+```kml
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<Placemark>
+  <name>ENSG</name>
+  <description>École nationale des sciences géographiques</description>
+  <Point>
+    <coordinates>2.587327,48.841023,0</coordinates>
+  </Point>
+</Placemark>
+</Document>
+</kml>
+```
+
 ### CSW
 
-### WCS
+__Catalog Service for the Web__ pour faire la liste des données géographiques.
 
-## Présentation des données
+### Et bien d'autres
 
-[Présentation des données](data-description.md)
+* Web Coverage Service (WCS)
+
+* Web Processing Service (WPS)
 
 ## GeoServer
+
+A nous de créer nos flux de données
 
 ### Première connexion
 
 ### Présentation de l'interface
 
-### Lancement de la première requête
-
-#### Analyse de la première requête
-
-+ changement ip
-
-#### Prise en main paramètres
-
 ### Ajout de nos données
 
 #### Shapefile
 
-airports & ports & lakes
+rivers & ports
 
 #### Postgis
 
-railroads & rivers
+railroads & airports
 
 ### Symbolisation WMS
 
+editer les styles de chacune des couches
+
 ### Couche dynamique
+
+=> créer la vue 
+viewparams séparés par ;
 
 ## OpenLayers
 
