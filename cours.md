@@ -67,9 +67,9 @@ http://espace-revendeurs3-geoserver.ign.fr:8080/geoserver/espace_revendeurs/wms?
 service=WMS&
 version=1.1.0&
 request=GetMap&
-layers=espace_revendeurs:top-25&
+layers=espace_revendeurs:routier-france-departementale&
 styles=&
-bbox=-5.1517692007638,41.328101745707,9.5640825551276,51.120001234561&
+bbox=-5.2,41.3,9.5,51.1&
 width=768&
 height=511&
 srs=EPSG:4326&
@@ -147,7 +147,7 @@ viewparams=grid:13001&
 width=768&
 height=511&
 styles=&
-bbox=-5.1517692007638,41.328101745707,9.5640825551276,51.120001234561&
+bbox=-5.2,41.3,9.5,51.1&
 srs=EPSG:4326&
 format=application/openlayers
 ```
@@ -192,6 +192,20 @@ outputFormat=application/json
 * _typeName_ : nom de la couche
 * _maxFeatures_
 * _outputFormat_
+* filter
+
+#### Filtrage 
+
+```
+http://espace-revendeurs3-geoserver.ign.fr:8080/geoserver/espace_revendeurs/ows?
+service=WFS&
+version=1.0.0&
+request=GetFeature&
+typeName=espace_revendeurs:top-25&
+maxFeatures=100&
+outputFormat=application/json&
+filter=<filter><PropertyIsLessThan><PropertyName>sale</PropertyName><Literal>100</Literal></PropertyIsLessThan></filter>
+```
 
 #### Stylisation
 
@@ -238,9 +252,17 @@ A nous de créer nos flux de données
 
 ### Première connexion
 
+http://localhost:8080/geoserver
+
+admin/geoserver
+
 ### Présentation de l'interface
 
+Menu qui nous intéresse c'est Données
+
 ### Ajout de nos données
+
+dans un même espace de travail
 
 #### Shapefile
 
@@ -254,10 +276,20 @@ railroads & airports
 
 editer les styles de chacune des couches
 
-### Couche dynamique
+### Filtrage
+
+#### Statique
+
+cql filter
+
+#### Dynamique
 
 => créer la vue qui va bien
 viewparams séparés par ;
+
+### Visualisation
+
+On va visualiser nos couches dans QGIS
 
 ## OpenLayers
 

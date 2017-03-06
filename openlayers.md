@@ -151,6 +151,7 @@ Reprenez votre première carte et ajoutez-y
 * un polygone de plus de 3 côtés contenant ces 3 derniers dessins
 * un bouton qui centre sur l'ENSG
 * un bouton qui centre sur la localisation de l'utilisateur
+* un bouton qui récupère la bbox
 * un affichage en bas à droite permanent des coordonnées du pointeur
 * un affichage en bas à gauche de l'échelle
 * un choix pour le fond de carte (au moins 3 : OSM, ça en fait un) 
@@ -162,13 +163,22 @@ On n'oublie pas les règles de cartographie :)
 * la couche kml des pays avec en échelle de couleur le PIB
 * la couche des railroads seulement à partir d'un niveau de zoom
 * la couche des airports avec comme label le code de l'aéroport
-* un bouton permettant d'exclure/inclure les aéroports militaires
 * la couche des ports
 * la couche des rivers
+* une légende
+* des popups informatifs pour 2 classes
+
+Ajoutons-y de l'intelligence 
+
+* un bouton permettant d'exclure/inclure les aéroports militaires
+* un formulaire avec 2 champs :
+ * un champ de saisie texte TEXT pour le nom de l'aéroport (obligatoire)
+ * un champ de saisie nombre n pour la taille du buffer (si non rempli : 50)
+Le résultat désiré étant : _afficher toutes les voies de train à moins de n km de l'aéroport TEXT_ (vue)
 
 ### Remarques
 
-* gestion proxy wfs
+* gestion proxy wfs [Proxy](proxy.md)
 
 * gestion projection
 
@@ -180,3 +190,4 @@ On n'oublie pas les règles de cartographie :)
 ## Si vous avez fini
 
 * Créer un outil pour dessiner sur la carte
+

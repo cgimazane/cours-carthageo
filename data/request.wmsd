@@ -7,6 +7,6 @@ viewparams=grid:13001&
 width=768&
 height=511&
 styles=&
-bbox=-5.1517692007638,41.328101745707,9.5640825551276,51.120001234561&
+bbox=-5.2,41.3,9.5,51.1&
 srs=EPSG:4326&
 format=application/openlayers
