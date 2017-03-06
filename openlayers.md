@@ -160,7 +160,7 @@ Ajoutons-y nos données
 
 On n'oublie pas les règles de cartographie :)
 
-* la couche kml des pays avec en échelle de couleur le PIB
+* la couche kml des pays avec en échelle de couleur la population
 * la couche des railroads seulement à partir d'un niveau de zoom
 * la couche des airports avec comme label le code de l'aéroport
 * la couche des ports
