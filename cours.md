@@ -28,11 +28,11 @@ Création d'un site web de visualisation de données localisées, sélectionnée
 * sélectionnées
 > filtres,types
 * stylisées
-> sémiologie
+> sémiologie cartographique
 
 ### Conclusion
 
-La connaissance de la donnée est primordiale pour sa mise en avant
+La connaissance de la donnée est primordiale pour sa mise en avant.
 
 ## Présentation des données
 
@@ -100,13 +100,47 @@ Modifier certains paramètres
 
 #### Stylisation
 
-Serveur => utilisation des sld
+Comme on envoie une __image__, on doit définir le style sur le serveur.
+On utilise le SLD (Styled Layer Descriptor).
+
+##### Exemple
+
+```xml
+<FeatureTypeStyle>
+  <Rule>
+    <PointSymbolizer>
+      <Graphic>
+        <Mark>
+          <WellKnownName>circle</WellKnownName>
+          <Fill>
+            <CssParameter name="fill">#FF0000</CssParameter>
+          </Fill>
+          <Stroke>
+            <CssParameter name="stroke">#000000</CssParameter>
+            <CssParameter name="stroke-width">2</CssParameter>
+          </Stroke>
+        </Mark>
+        <Size>6</Size>
+      </Graphic>
+    </PointSymbolizer>
+  </Rule>
+</FeatureTypeStyle>
+```
+
+![sld](img/sld.png "sld")
+
+##### Commentaires utiles
+
+Il est possible de filtrer les objets que l'on veut afficher et leur affecter des styles selon leur type.
+
+http://docs.geoserver.org/stable/en/user/styling/sld/cookbook/
 
 #### Requete WMS dynamique
 
 ```
 http://espace-revendeurs3-geoserver.ign.fr:8080/geoserver/espace_revendeurs/wms?
-service=WMS&version=1.1.0&
+service=WMS&
+version=1.1.0&
 request=GetMap&
 layers=espace_revendeurs:top-75-grid&
 viewparams=grid:13001&
@@ -196,6 +230,8 @@ __Catalog Service for the Web__ pour faire la liste des données géographiques.
 
 * Web Processing Service (WPS)
 
+* Styled Layer Descriptor (SLD)
+
 ## GeoServer
 
 A nous de créer nos flux de données
@@ -220,7 +256,7 @@ editer les styles de chacune des couches
 
 ### Couche dynamique
 
-=> créer la vue 
+=> créer la vue qui va bien
 viewparams séparés par ;
 
 ## OpenLayers

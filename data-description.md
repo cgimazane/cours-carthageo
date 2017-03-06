@@ -36,6 +36,57 @@ SELECT AddGeometryColumn('','airports','geom','4326','POINT',2);
 COMMIT;
 ```
 
+## Countries 
+
+### Description
+
+ 247 countries in the world.
+
+### Symbolisation 
+
+![countries](img/countries.png "countries")
+
+### sql
+
+```sql
+SET CLIENT_ENCODING TO UTF8;
+SET STANDARD_CONFORMING_STRINGS TO ON;
+BEGIN;
+CREATE TABLE "countries" (gid serial,
+"scalerank" int2,
+"labelrank" float8,
+"sovereignt" varchar(32),
+"sov_a3" varchar(3),
+"adm0_dif" float8,
+"level" float8,
+"type" varchar(17),
+"name" varchar(36),
+"name_long" varchar(40),
+"abbrev" varchar(13),
+"postal" varchar(4),
+"formal_en" varchar(52),
+"note_adm0" varchar(22),
+"name_sort" varchar(36),
+"name_alt" varchar(38),
+"pop_est" float8,
+"gdp_md_est" float8,
+"economy" varchar(26),
+"income_grp" varchar(23),
+"fips_10_" varchar(3),
+"iso_a2" varchar(5),
+"iso_a3" varchar(3),
+"woe_id" float8,
+"woe_id_eh" float8,
+"woe_note" varchar(190),
+"continent" varchar(23),
+"region_un" varchar(23),
+"subregion" varchar(25),
+"region_wb" varchar(26));
+ALTER TABLE "countries" ADD PRIMARY KEY (gid);
+SELECT AddGeometryColumn('','countries','geom','4326','MULTIPOLYGON',2);
+COMMIT;
+```
+
 ## Ports 
 
 ### Description

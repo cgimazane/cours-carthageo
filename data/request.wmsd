@@ -1,0 +1,12 @@
+http://espace-revendeurs3-geoserver.ign.fr:8080/geoserver/espace_revendeurs/wms?
+service=WMS&
+version=1.1.0&
+request=GetMap&
+layers=espace_revendeurs:top-75-grid&
+viewparams=grid:13001&
+width=768&
+height=511&
+styles=&
+bbox=-5.1517692007638,41.328101745707,9.5640825551276,51.120001234561&
+srs=EPSG:4326&
+format=application/openlayers

@@ -8,19 +8,20 @@ Prise en main de Openlayers
 
 ### C'est quoi Openlayers ?
 
-* bibliothèque de fonctions JavaScript
+Une bibliothèque JavaScript :
 
-* permettant la cartographie en ligne
+* permettant la cartographie dynamique en ligne (supporté par l'Open Source Geospatial Foundation (OSGeo))
 
-* supporté par l'Open Source Geospatial Foundation (OSGeo)
+* contenant de nombreuses fonctions pour travailler la donnée à afficher
+
+* acceptant de nombreux formats et services
+
+
 
 ### Autres
 
 * Leaflet 
 > autre bibiliothèque JS
-
-* API Geoportail 
-> basé sur OpenLayers
 
 * API Google Maps
 
@@ -36,9 +37,9 @@ Top-level namespace : ```ol```
 
 Les subdivisions qui nous intéressent sont :
 
->>présentation namespace tout ça
-
 ### Map
+
+* `core component of OpenLayers`
 
 * élément principal et descendant direct de ```ol```
 
@@ -52,6 +53,8 @@ Les subdivisions qui nous intéressent sont :
 ```
 
 ### View
+
+* `represents a simple 2D view of the map`
 
 * élément descendant de Map
 
@@ -68,9 +71,9 @@ Les subdivisions qui nous intéressent sont :
   }));
 ```
 
-### Source
+### source
 
-Pour récupérer les données, on utilise la classe `Source`. 
+Pour récupérer les données, on utilise le namespace `source`. 
 
 * Existence de sources de données gratuites, libres ou payantes...
 
@@ -80,9 +83,13 @@ Pour récupérer les données, on utilise la classe `Source`.
 var osmSource = new ol.source.OSM();
 ```
 
-### Layer
+### layer
 
-* Représentation visuelle de la donnée depuis une source définie dans le layergroup du Map
+Pour créer des couches, on utilise le namespace `layer`.
+
+* Représentation visuelle de la donnée depuis une source définie
+
+* Composant du layergroup de Map
 
 * 3 types basiques
  - ol.layer.Tile
@@ -123,34 +130,53 @@ On peut grouper ce qu'on a vu précédemment pour la construction de la premièr
 
 ## Autres 
 
-### Feature
+* Control
 
-### Object
+* Interaction
 
-### Style
+* Style
+
+* Feature
+
+* Geometry
 
 ---
 
 ## Construction de la première page
 
 Reprenez votre première carte et ajoutez-y 
-* un point rouge à l'endroit où vous résidez
-* un carré vert sur votre lieu de naissance
-* modifier la projection
+* un point symbolisé par un point rouge à l'endroit où vous résidez
+* un point symbolisé par un carré vert sur votre lieu de naissance
+* une ligne symbolisée par un trait en poitillé
+* un polygone de plus de 3 côtés contenant ces 3 derniers dessins
+* un bouton qui centre sur l'ENSG
+* un bouton qui centre sur la localisation de l'utilisateur
+* un affichage en bas à droite permanent des coordonnées du pointeur
+* un affichage en bas à gauche de l'échelle
+* un choix pour le fond de carte (au moins 3 : OSM, ça en fait un) 
 
-### Ajout page geoserver
+Ajoutons-y nos données
 
-### WMS
+On n'oublie pas les règles de cartographie :)
 
-### WFS
+* la couche kml des pays avec en échelle de couleur le PIB
+* la couche des railroads seulement à partir d'un niveau de zoom
+* la couche des airports avec comme label le code de l'aéroport
+* un bouton permettant d'exclure/inclure les aéroports militaires
+* la couche des ports
+* la couche des rivers
 
-gestion proxy
+### Remarques
+
+* gestion proxy wfs
+
+* gestion projection
 
 ### Liens utiles
 
 * https://openlayers.org/en/latest/examples/
 * https://openlayers.org/en/latest/apidoc/ol.html
 
-## Retour au cours 
+## Si vous avez fini
 
-[Cours](cours.md)
+* Créer un outil pour dessiner sur la carte
