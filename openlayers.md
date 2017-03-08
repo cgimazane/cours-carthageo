@@ -1,4 +1,4 @@
-# Openlayers
+# OpenLayers
 
 Prise en main de Openlayers
 
@@ -6,7 +6,7 @@ Prise en main de Openlayers
 
 ## Présentation
 
-### C'est quoi Openlayers ?
+### C'est quoi OpenLayers ?
 
 Une bibliothèque JavaScript :
 
@@ -161,10 +161,10 @@ Ajoutons-y nos données
 On n'oublie pas les règles de cartographie :)
 
 * la couche kml des pays avec en échelle de couleur la population
-* la couche des railroads seulement à partir d'un niveau de zoom
-* la couche des airports avec comme label le code de l'aéroport
-* la couche des ports
-* la couche des rivers
+* la couche wms des ports 
+* la couche wms des rivers
+* la couche wfs des railroads seulement à partir d'un niveau de zoom
+* la couche wfs des airports avec comme label le code de l'aéroport
 * une légende
 * des popups informatifs pour 2 classes
 * la possibilité de zoomer sur la totalité des données en appuyant sur a
@@ -173,13 +173,13 @@ Ajoutons-y de l'intelligence
 
 * un bouton permettant d'exclure/inclure les aéroports militaires
 * un formulaire avec 2 champs :
- * un champ de saisie texte TEXT pour le nom de l'aéroport (obligatoire)
- * un champ de saisie nombre n pour la taille du buffer (si non rempli : 50)
+ * un champ de saisie texte `TEXT` pour le nom de l'aéroport (obligatoire)
+ * un champ de saisie nombre `n` pour la taille du buffer (si non rempli : 50)
 Le résultat désiré étant : _afficher toutes les voies de train à moins de n km de l'aéroport TEXT_ (vue)
 
 ### Remarques
 
-* gestion proxy wfs [Proxy](proxy.md)
+* Attention au proxy : [Proxy](proxy.md)
 
 ### Liens utiles
 

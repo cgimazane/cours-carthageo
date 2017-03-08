@@ -2,14 +2,33 @@
 
 ## Etat des lieux
 
-### Cours
+### Organisation des 2 journées
 
+* Pas de TP à proprement parler
 
+* Prise en main des outils au fur et à mesure des séances
 
-### Connaissances
+* Plan
+  * Généralités - Etat des lieux
+    * Concept
+    * Données
+  * Services Web
+    * WMS
+    * WMTS
+    * WFS
+    * Autres
+  * GeoServer
+    * Données
+    * Filtrage
+  * OpenLayers
+    * Présentation
+    * Utilisation
+
+### Connaissances
 
 * client ? server ?
 * html ? css ? js ? php ? sql ?
+* firebug ?
 * projection ? reprojection ?
 * frameworks ?
 
@@ -33,7 +52,7 @@ Création d'un site web de visualisation de données localisées, sélectionnée
 
 ### Conclusion
 
-La connaissance de la donnée est primordiale pour sa mise en avant.
+La connaissance de la donnée est primordiale pour sa bonne utilisation et sa mise en avant correcte.
 
 ## Présentation des données
 
@@ -216,7 +235,7 @@ filter=<filter><PropertyIsLessThan><PropertyName>sale</PropertyName><Literal>100
 
 #### Stylisation
 
-Client
+La mise en style des données se fait côté client. Ce sera donc dans le script JavaScript que le style sera appliqué. 
 
 ## Autres services & standards
 
@@ -259,44 +278,69 @@ A nous de créer nos flux de données
 
 ### Première connexion
 
-http://localhost:8080/geoserver
+On se connecte sur l'interface d'administration du GeoServer : [http://localhost:8080/geoserver](http://localhost:8080/geoserver)
 
-admin/geoserver
+Les identifiants sont : admin/geoserver
 
 ### Présentation de l'interface
 
-Menu qui nous intéresse c'est Données
+De nombreuses actions sont possibles sur le GeoServer du paramétrage de configuration jusqu'à l'identification des utilisateurs.
+
+Le sous-menu qui nous intéresse plus particulièrement c'est __Données__
+
+* Prévisualisation de la couche : visualisation des couches de données
+* Espaces de travail : gestion des différents projets
+* Entrepôts : répertoire de données
+* Couches : les données en elles-même 
+* Agrégations de couches : mise sur une même couche de plusieurs couches
+* Styles : styles en SLD 
 
 ### Ajout de nos données
 
-dans un même espace de travail
+On va donc ajouter les données qui ont été présentées précédemment dans un même espace de travail que l'on va nommer `world-overview`. 
+Il existe plusieurs méthodes de chargement des données : 
 
 #### Shapefile
 
-rivers & ports
+On va ajouter les données _rivers_ et _ports_ en tant qu'entrepôt Shapefile
 
 #### Postgis
 
-railroads & airports
+On va ajouter les données _railroads_ et  _airports_ en tant qu'entrepôt PostGIS
 
 ### Symbolisation WMS
 
-editer les styles de chacune des couches
+Ajouter à chacune de ces couches un style partculier => créer les styles sld propres à chaque couche
+
+### Visualisation
+
+On va visualiser nos couches dans QGIS
 
 ### Filtrage
 
 #### Statique
 
-cql filter
+http://espace-revendeurs3-geoserver.ign.fr:8080/geoserver/espace_revendeurs/wms?service=WMS&version=1.1.0&request=GetMap&layers=espace_revendeurs:routier-france-regionale&styles=&bbox=-5.2,41.3,9.5,51.1&width=768&height=511&srs=EPSG:4326&format=application/openlayers
+
+Appuyer sur les '...' en haut à gauche de la carte
+
+Dans le filtre CQL, `edition_number = 1` 
+
+revient à ajouter 
+
+`&filter=<filter><PropertyIsEqualTo><PropertyName>edition_number</PropertyName><Literal>1</Literal></PropertyIsEqualTo></filter>`
+
+à la fin de la requête.
 
 #### Dynamique
 
-=> créer la vue qui va bien
-viewparams séparés par ;
+Dans l'interface de notre GeoServer, on va créer une vue qui va filtrer les ports en fonction de leur `scalerank`
 
-### Visualisation
+_NB_ : on peut ajouter plusieurs viewparams qui sont séparés par des `;`
 
-On va visualiser nos couches dans QGIS
+### Re-Visualisation
+
+On va re-visualiser et tester nos couches dans QGIS
 
 ## OpenLayers
 
