@@ -2,6 +2,12 @@
 
 ## Etat des lieux
 
+### Cours
+
+
+
+### Connaissances
+
 * client ? server ?
 * html ? css ? js ? php ? sql ?
 * projection ? reprojection ?
@@ -19,16 +25,11 @@ Création d'un site web de visualisation de données localisées, sélectionnée
 
 ### 5 locutions importantes
 
-* site web
-> interface utilisateur, navigation web
-* visualisation
-> cartographie, information
-* __données localisées__
-> format, origine
-* sélectionnées
-> filtres,types
-* stylisées
-> sémiologie cartographique
+* site web => interface utilisateur, navigation web
+* visualisation => cartographie, information
+* __données localisées__ => format, origine
+* sélectionnées => filtres,types
+* stylisées => sémiologie cartographique
 
 ### Conclusion
 
@@ -95,6 +96,7 @@ Modifier certains paramètres
 * width
 * height
 * bbox
+* srs
 * layers (affichage de 2 autres couches)
 * format
 
@@ -127,7 +129,10 @@ On utilise le SLD (Styled Layer Descriptor).
 </FeatureTypeStyle>
 ```
 
+Rendu
+
 ![sld](img/sld.png "sld")
+
 
 ##### Commentaires utiles
 
@@ -151,6 +156,8 @@ bbox=-5.2,41.3,9.5,51.1&
 srs=EPSG:4326&
 format=application/openlayers
 ```
+
+Changer de couche et de commune
 
 ### WMTS
 
